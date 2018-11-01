@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../../../../PushWebservice" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../../zf-taskmonitor/2_src/1_trunk/zf-taskmonitor/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../../zf-udmanage/2_src/1_trunk/zf-ud1exec-server/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../../zf-flumemanage/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../../zf-messagemanage/2_src/1_trunk/zf-message-server/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../../zf-statmange/zf-taskstat/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../../zf-script-sql/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../../PushWebservice/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../../zf-push/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8 (1)" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+</project>

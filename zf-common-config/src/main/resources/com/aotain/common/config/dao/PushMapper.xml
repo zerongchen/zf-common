@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aotain.common.config.dao.PushMapper">
+  <resultMap id="BaseResultMap" type="com.aotain.common.config.model.PushMessage">
+    <id column="pushid" jdbcType="DECIMAL" property="pushId" />
+    <result column="push_type" jdbcType="BIGINT" property="pushType" />
+    <result column="subject_type" jdbcType="VARCHAR" property="subjectType" />
+    <result column="alarm_message" jdbcType="VARCHAR" property="alarmMessage" />
+    <result column="mail_subject" jdbcType="VARCHAR" property="mailSubject" />
+    <result column="push_content" jdbcType="VARCHAR" property="pushContent" />
+    <result column="push_status" jdbcType="BIGINT" property="pushStatus" />
+    <result column="repush_times" jdbcType="BIGINT" property="repushTimes" />
+    <result column="server_ip" jdbcType="VARCHAR" property="serverIp" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    pushid , push_type,subject_type,alarm_message,mail_subject, push_content, push_status, repush_times, server_ip,
+    create_time, update_time
+  </sql>
+  
+  <update id="updatePushMessageStatus" parameterType="com.aotain.common.config.model.PushMessage">
+    update zf_v2_push_message
+    <set>
+      <if test="pushStatus != null">
+        push_status = #{pushStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="repushTimes!=0">
+      repush_times = #{repushTimes},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where pushid = #{pushId,jdbcType=BIGINT}
+  </update>
+  
+  <select id="getPushMessageById" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List" />
+    from zf_v2_push_message t
+    WHERE  t.pushid=#{id}
+  </select>
+  <insert id="insert" parameterType="com.aotain.common.config.model.PushMessage" useGeneratedKeys="true" keyProperty="pushId">
+  	insert INTO zf_v2_push_message( push_type,subject_type,alarm_message,mail_subject, push_content, push_status, repush_times, server_ip,
+    create_time, update_time ) VALUE(#{pushType},#{subjectType},#{alarmMessage},#{mailSubject},#{pushContent},#{pushStatus},#{repushTimes},#{serverIp},#{createTime},#{updateTime})
+  </insert>
+  
+  <select id="getDeployProvince" parameterType="java.lang.String" resultType="java.lang.String">
+  	SELECT area_name
+  	FROM zf_dict_chinaarea
+  	WHERE area_code = #{province}
+  </select>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--  mybatis全局属性相关配置文件  -->
+
+<configuration>
+	
+    <settings>
+        <!-- Globally enables or disables any caches configured in any mapper under this configuration -->
+        <setting name="cacheEnabled" value="true"/>
+        <!-- Sets the number of seconds the driver will wait for a response from the database -->
+        <setting name="defaultStatementTimeout" value="180"/>
+        <!-- Enables automatic mapping from classic database column names A_COLUMN to camel case classic Java property names aColumn -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- Allows JDBC support for generated keys. A compatible driver is required.
+        This setting forces generated keys to be used if set to true,
+         as some drivers deny compatibility but still work -->
+        <setting name="useGeneratedKeys" value="true"/>
+
+        <!--     设置mybatis日志实现方式       -->
+        <setting name="logImpl" value="SLF4J" />
+    </settings>
+	
+	<plugins>
+
+        <!-- 通用Maper -->
+        <plugin interceptor="com.github.abel533.mapperhelper.MapperInterceptor">
+            <!-- 主键自增回写方法,默认值MYSQL,详细说明请看文档 -->
+            <property name="IDENTITY" value="MYSQL" />
+            <!-- 通用Mapper接口，多个通用接口用逗号隔开 -->
+            <property name="mappers" value="com.github.abel533.mapper.Mapper" />
+        </plugin>
+
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<property name="helperDialect" value="mysql" />
+			<property name="reasonable" value="true" />
+			<property name="supportMethodsArguments" value="true" />
+			<property name="returnPageInfo" value="check" />
+			<property name="params" value="count=countSql" />
+		</plugin>
+
+        <plugin interceptor="com.aotain.common.config.pagehelper.MyBatisPageInterceptor">
+            <property name="databaseType" value="mysql" />
+        </plugin>
+
+	</plugins>
+	
+    <!-- Continue going here -->
+    <mappers>
+       <!-- <mapper resource="mapper/IdcJcdmJkcsMapper.xml"></mapper>-->
+    </mappers>
+</configuration>

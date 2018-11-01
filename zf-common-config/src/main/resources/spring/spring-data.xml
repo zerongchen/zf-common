@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-4.3.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+     http://www.springframework.org/schema/task
+     http://www.springframework.org/schema/task/spring-task-4.3.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+    <!-- 启用事务注解 -->
+    <tx:annotation-driven />
+    <context:annotation-config />
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <task:annotation-driven executor="taskExecutor" scheduler="taskScheduler"/>
+	<task:executor id="taskExecutor" pool-size="5"/>
+	<task:scheduler id="taskScheduler" pool-size="10"/>
+
+    <bean id="placeholderConfigurer1" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="order" value="1"/>
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>file:${ZF_HOME}/config/config.properties</value>
+                <value>file:${ZF_HOME}/config/redis.properties</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="placeholderConfigurer2" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="order" value="2"/>
+     	<property name="ignoreResourceNotFound" value="true"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>file:${user.dir}/config/config.properties</value>
+                <value>file:${user.dir}/config/redis.properties</value>
+            </list>
+        </property>
+    </bean>
+
+   <bean id="placeholderConfigurer3" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="order" value="3"/>
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:config.properties</value>
+                <value>classpath:redis.properties</value>
+            </list>
+        </property>
+    </bean>
+	
+	
+	<bean id="log-filter" class="com.alibaba.druid.filter.logging.CommonsLogFilter">
+        <property name="resultSetLogEnabled" value="true" />
+        <property name="statementExecutableSqlLogEnable" value="true" />
+    </bean>
+
+    <bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
+        <!--慢SQL统计，如果SQL执行时间超过一定时间则记录为慢SQL  -->
+        <property name="slowSqlMillis" value="3000" />
+        <!--慢SQL统计日志输出  -->
+        <property name="logSlowSql" value="true" />
+        <!--合并SQL统计 例如select * from table t where t.id =1，会被变为select * from table t where t.id =？来统计  -->
+        <property name="mergeSql" value="true" />
+    </bean>
+
+    <bean id="wall-filter-config" class="com.alibaba.druid.wall.WallConfig" init-method="init">
+        <!-- 指定配置装载的目录  multiStatementAllow-->
+        <property name="dir" value="META-INF/druid/wall/mysql" />
+        <property name="selectWhereAlwayTrueCheck" value="false" />
+        <property name="selectHavingAlwayTrueCheck" value="false" />
+		<!-- 允许一次执行多条语句 -->
+        <property name="multiStatementAllow" value="true" />
+		<!--允许非基本语句的其他语句 -->
+        <property name="noneBaseStatementAllow" value="true" />
+    </bean>
+
+    <bean id="wall-filter" class="com.alibaba.druid.wall.WallFilter">
+        <property name="dbType" value="mysql" />
+        <property name="config" ref="wall-filter-config" />
+    </bean>
+	
+    <!-- 数据源以及连接池配置 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+        init-method="init" destroy-method="close" primary="true">
+        <!-- 数据库基本信息配置 -->
+        <property name="driverClassName" value="${jdbc.driverClass}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <!-- 初始化连接数量 -->
+        <property name="initialSize" value="5" />
+        <!-- 最大并发连接数 -->
+        <property name="maxActive" value="10" />
+        <!-- 最小空闲连接数 -->
+        <property name="minIdle" value="1" />
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="120000" />
+        <!-- 超过时间限制是否回收 -->
+        <property name="removeAbandoned" value="true" />
+        <!-- 超过时间限制多长； -->
+        <property name="removeAbandonedTimeout" value="180" />
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="120000" />
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="300000" />
+        <!-- 用来检测连接是否有效的sql，要求是一个查询语句。 如果validationQuery为null，testOnBorrow、testOnReturn、testWhileIdle都不起其作用。 -->
+        <property name="validationQuery" value="SELECT 1 FROM DUAL" />
+        <!-- 建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于 timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。 -->
+        <property name="testWhileIdle" value="true" />
+        <!-- 申请连接时执行validationQuery检测连接是否有效，配置为true会降低性能 -->
+        <property name="testOnBorrow" value="false" />
+        <!-- 归还连接时执行validationQuery检测连接是否有效，配置为true会降低性能  -->
+        <property name="testOnReturn" value="false" />
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <property name="poolPreparedStatements" value="true" />
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="50" />
+        
+         <!-- 配置监控统计拦截的filters -->
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter" />
+                <ref bean="wall-filter" />
+                <ref bean="log-filter" />
+            </list>
+        </property>
+        
+    </bean>
+
+    <!--   事物管理器    -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+</beans>

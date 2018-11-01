@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="PushWebservice" />
+        <module name="zf-common-config" />
+        <module name="zf-common-policy" />
+        <module name="zf-common-utils" />
+        <module name="zf-flume-server" />
+        <module name="zf-message-server" />
+        <module name="zf-push" />
+        <module name="zf-script-sql" />
+        <module name="zf-taskmonitor" />
+        <module name="zf-taskstat" />
+        <module name="zf-ud1exec-server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="PushWebservice" target="1.7" />
+      <module name="zf-common" target="1.5" />
+      <module name="zf-common-config" target="1.7" />
+      <module name="zf-common-policy" target="1.7" />
+      <module name="zf-common-utils" target="1.7" />
+      <module name="zf-flume-server" target="1.6" />
+      <module name="zf-message-server" target="1.6" />
+      <module name="zf-push" target="1.8" />
+      <module name="zf-script-sql" target="1.5" />
+      <module name="zf-taskmonitor" target="1.7" />
+      <module name="zf-taskstat" target="1.7" />
+      <module name="zf-ud1exec-server" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

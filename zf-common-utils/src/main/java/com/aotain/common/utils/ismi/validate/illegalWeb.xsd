@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="illegalWeb">
+		<xs:annotation>
+			<xs:documentation>违法违规网站监测数据</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idcId" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>IDC/ISP经营者ID</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="houseId" type="xs:long">
+					<xs:annotation>
+						<xs:documentation>机房ID</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="domain" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>监测到的实际域名</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ip" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>监测到的域名对应的IP地址</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="port" type="xs:long" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>监测到的目的端口</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="serviceContent" type="xs:integer" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>服务内容</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="illegalType" type="xs:integer" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>违法违规情况</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="firstFound" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>首次监测到该异常的时间，采用yyyy-MM-dd HH:mm:ss格式</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="lastFound" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>当天最后一次发现该异常的时间，采用yyyy-MM-dd HH:mm:ss格式</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="visitCount" type="xs:long" minOccurs="0">				
+					<xs:annotation>
+						<xs:documentation>24小时改域名的累积访问量</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="protocol" type="xs:integer" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>传输层协议类型：0-TCP、1-UDP</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="block" type="xs:integer" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>是否阻断：0-未阻断、1-阻断</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="operationAccount" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>处置人账号。处置人账号为实施处置操作的用户登录名，如果根据SMMS指令自动处置记录为“ISMS”，如果未处置，记录为空</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../../PushWebservice/PushWebservice.iml" filepath="$PROJECT_DIR$/../../../../PushWebservice/PushWebservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zf-common.iml" filepath="$PROJECT_DIR$/zf-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zf-common-config/zf-common-config.iml" filepath="$PROJECT_DIR$/zf-common-config/zf-common-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zf-common-policyapi/zf-common-policy.iml" filepath="$PROJECT_DIR$/zf-common-policyapi/zf-common-policy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zf-common-utils/zf-common-utils.iml" filepath="$PROJECT_DIR$/zf-common-utils/zf-common-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../zf-flumemanage/zf-flume-server.iml" filepath="$PROJECT_DIR$/../../../../zf-flumemanage/zf-flume-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../zf-messagemanage/2_src/1_trunk/zf-message-server/zf-message-server.iml" filepath="$PROJECT_DIR$/../../../../zf-messagemanage/2_src/1_trunk/zf-message-server/zf-message-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../zf-push/zf-push.iml" filepath="$PROJECT_DIR$/../../../../zf-push/zf-push.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../zf-script-sql/zf-script-sql.iml" filepath="$PROJECT_DIR$/../../../../zf-script-sql/zf-script-sql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../zf-taskmonitor/2_src/1_trunk/zf-taskmonitor/zf-taskmonitor.iml" filepath="$PROJECT_DIR$/../../../../zf-taskmonitor/2_src/1_trunk/zf-taskmonitor/zf-taskmonitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../zf-statmange/zf-taskstat/zf-taskstat.iml" filepath="$PROJECT_DIR$/../../../../zf-statmange/zf-taskstat/zf-taskstat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../zf-udmanage/2_src/1_trunk/zf-ud1exec-server/zf-ud1exec-server.iml" filepath="$PROJECT_DIR$/../../../../zf-udmanage/2_src/1_trunk/zf-ud1exec-server/zf-ud1exec-server.iml" />
+    </modules>
+  </component>
+</project>

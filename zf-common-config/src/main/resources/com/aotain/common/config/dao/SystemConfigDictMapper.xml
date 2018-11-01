@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aotain.common.config.dao.SystemConfigDictMapper">
+    <resultMap id="BaseResultMap" type="com.aotain.common.config.model.SystemConfigDict">
+
+        <result column="config_id" jdbcType="DECIMAL" property="configId" />
+        <result column="config_key" jdbcType="VARCHAR" property="configKey" />
+        <result column="config_value" jdbcType="VARCHAR" property="configValue" />
+        <result column="config_desc" jdbcType="VARCHAR" property="configDesc" />
+        <result column="input_type" jdbcType="DECIMAL" property="inputType" />
+        <result column="input_items" jdbcType="VARCHAR" property="inputItems" />
+        <result column="model_type" jdbcType="DECIMAL" property="modelType" />
+        <result column="CREATE_OPER" jdbcType="VARCHAR" property="createOper" />
+        <result column="MODIFY_OPER" jdbcType="VARCHAR" property="modifyOper" />
+        <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+        <result column="MODIFY_TIME" jdbcType="DATE" property="modelType" />
+    </resultMap>
+
+    <select id="selectConfig"  resultMap="BaseResultMap">
+        select * from zf_dict_system_config
+    </select>
+
+</mapper>

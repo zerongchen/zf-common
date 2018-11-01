@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="activeResources">
+		<xs:annotation>
+			<xs:documentation>活跃资源监测数据</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="findDomainList" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="findDomainListDomain" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>在线活跃的本级域名</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="findDomainListFirstTime" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>首次采集时间</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="findDomainListLastTime" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>最后活跃时间</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="block" type="xs:integer">
+								<xs:annotation>
+									<xs:documentation>是否阻断</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="visitsCount" type="xs:long">
+								<xs:annotation>
+									<xs:documentation>访问量</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="topDomainflag" type="xs:integer">
+								<xs:annotation>
+									<xs:documentation>顶级域名标记</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="topDomain" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>相应顶级域名</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="ip" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>对应IP地址</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="idcId" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>IDC/ISP经营者ID</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="houseId" type="xs:long">
+								<xs:annotation>
+									<xs:documentation>机房ID</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="findIpList" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="findIpListIp" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>在线活跃的IP地址</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="findIpListFirstTime" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>首次采集时间</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="findIpListLastTime" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>最后活跃时间</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="block" type="xs:integer">
+								<xs:annotation>
+									<xs:documentation>是否阻断</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="visitsCount" type="xs:long">
+								<xs:annotation>
+									<xs:documentation>访问量</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="isInIpSeg" type="xs:integer">
+								<xs:annotation>
+									<xs:documentation>报备状态：0-数据已经上报至SMMS、1-数据未上报至SMMS</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="port" type="xs:long">
+								<xs:annotation>
+									<xs:documentation>应用端口</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="protocol" type="xs:integer">
+								<xs:annotation>
+									<xs:documentation>传输层协议类型：0-TCP、1-UDP</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="idcId" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>IDC/ISP经营者ID</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="houseId" type="xs:long">
+								<xs:annotation>
+									<xs:documentation>机房ID</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

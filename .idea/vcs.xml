@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../../../../PushWebservice" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../../../../zf-flumemanage" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../../../../zf-messagemanage/2_src/1_trunk/zf-message-server" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../../../../zf-push" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../../../../zf-script-sql" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../../../../zf-statmange/zf-taskstat" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../../../../zf-taskmonitor/2_src/1_trunk/zf-taskmonitor" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../../../../zf-udmanage/2_src/1_trunk/zf-ud1exec-server" vcs="svn" />
+  </component>
+</project>

@@ -1,0 +1,2120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="basicInfo">
+		<xs:annotation>
+			<xs:documentation>上报数据</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element name="newInfo">
+						<xs:annotation>
+							<xs:documentation>新增基础数据</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="idcId" type="xs:string">
+									<xs:annotation>
+										<xs:documentation>电信管理部门颁发的IDC许可证号</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="idcName" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>经营者名称，与许可证上名称一致</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="idcAdd" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>经营者通信地址</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="idcZip" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>对应经营者通信地址的邮编</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="corp" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>企业法人</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="idcOfficer" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>网络信息安全责任人信息</xs:documentation>
+									</xs:annotation>
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="name" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>人员姓名</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="idType" type="xs:integer">
+												<xs:annotation>
+													<xs:documentation>人员的证件类型</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="id" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>证件号码</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="tel" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>固定电话</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="mobile" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>移动电话</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="email" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>Email地址</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="emergencyContact" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>紧急联系人信息</xs:documentation>
+									</xs:annotation>
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="name" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>人员姓名</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="idType" type="xs:integer">
+												<xs:annotation>
+													<xs:documentation>人员的证件类型</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="id" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>证件号码</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="tel" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>固定电话</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="mobile" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>移动电话</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="email" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>Email地址</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="houseCount" type="xs:long" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>新增机房数量</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="houseInfo" minOccurs="0" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>机房信息</xs:documentation>
+									</xs:annotation>
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="houseId" type="xs:long">
+												<xs:annotation>
+													<xs:documentation>当前机房ID，由IDC或ISP经营者产生，在本单位中唯一</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="houseName" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>机房名称</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="houseType" type="xs:integer">
+												<xs:annotation>
+													<xs:documentation>机房性质</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="houseProvince" type="xs:long">
+												<xs:annotation>
+													<xs:documentation>机房所在省的行政区划代码，参见《中华人民共和国行政区划代码》（GB/T2260-2007）</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="houseCity" type="xs:long">
+												<xs:annotation>
+													<xs:documentation>机房所在市的行政区划代码，参见《中华人民共和国行政区划代码》（GB/T2260-2007）</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="houseCounty" type="xs:long" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>机房所在县的行政区划代码，参见《中华人民共和国行政区划代码》（GB/T2260-2007）</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="houseAdd" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>机房的通信地址</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="houseZip" type="xs:string">
+												<xs:annotation>
+													<xs:documentation>通信地址的邮编</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="houseOfficer">
+												<xs:annotation>
+													<xs:documentation>机房网络信息安全责任人信息</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="name" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>人员姓名</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="idType" type="xs:integer">
+															<xs:annotation>
+																<xs:documentation>人员的证件类型</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="id" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>证件号码</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="tel" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>固定电话</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="mobile" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>移动电话</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="email" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>Email地址</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="gatewayInfo" maxOccurs="unbounded">
+												<xs:annotation>
+													<xs:documentation>链路信息</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="id" type="xs:long">
+															<xs:annotation>
+																<xs:documentation>链路信息编号ID</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="bandWidth" type="xs:long">
+															<xs:annotation>
+																<xs:documentation>链路信息带宽单位（兆比特）</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="linkType" type="xs:integer">
+															<xs:annotation>
+																<xs:documentation>链路类型</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="accessUnit" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>链路接入单位信息</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="gatewayIp" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>网关IP地址</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="ipSegInfo" maxOccurs="unbounded">
+												<xs:annotation>
+													<xs:documentation>IP地址段信息</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="id" type="xs:long">
+															<xs:annotation>
+																<xs:documentation>IP地址段信息编号ID</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="startIp" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>起始IP地址</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="endIp" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>终止IP地址</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="type" type="xs:integer">
+															<xs:annotation>
+																<xs:documentation>IP地址使用方式，包括；0-静态； 1-动态； 2-保留。</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="user" type="xs:string" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>使用该IP段的单位名称，如果是个人需要填写姓名</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="idType" type="xs:integer" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>使用人证件类型</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="idNumber" type="xs:string" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>对应的证件号码</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="sourceUnit" type="xs:string" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>来源单位</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="allocationUnit" type="xs:string" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>分配单位</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="useTime" type="xs:string" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>分配使用时间采用yyyy-MM-dd格式</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="frameInfo" maxOccurs="unbounded">
+												<xs:annotation>
+													<xs:documentation>机架信息</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="id" type="xs:long">
+															<xs:annotation>
+																<xs:documentation>机架信息编号ID</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="useType" type="xs:integer">
+															<xs:annotation>
+																<xs:documentation>使用类型</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="distribution" type="xs:integer">
+															<xs:annotation>
+																<xs:documentation>分配状态</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="occupancy" type="xs:integer">
+															<xs:annotation>
+																<xs:documentation>占用状态</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="frameName" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>机位名称</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="userInfo" minOccurs="0" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>用户数据</xs:documentation>
+									</xs:annotation>
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="id" type="xs:long">
+												<xs:annotation>
+													<xs:documentation>用户唯一ID，由IDC/ISP经营者产生，在本单位中唯一</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="nature" type="xs:integer">
+												<xs:annotation>
+													<xs:documentation>1、提供互联网应用服务的用户2、其他用户</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="info">
+												<xs:annotation>
+													<xs:documentation>用户信息</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="unitName" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>单位名称</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="unitNature" type="xs:integer">
+															<xs:annotation>
+																<xs:documentation>单位属性</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="idType" type="xs:integer">
+															<xs:annotation>
+																<xs:documentation>证件类型</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="idNumber" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>证件号码</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="officer">
+															<xs:annotation>
+																<xs:documentation>网络信息安全责任人信息</xs:documentation>
+															</xs:annotation>
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="name" type="xs:string">
+																		<xs:annotation>
+																			<xs:documentation>人员姓名</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="idType" type="xs:integer">
+																		<xs:annotation>
+																			<xs:documentation>人员的证件类型</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="id" type="xs:string">
+																		<xs:annotation>
+																			<xs:documentation>证件号码</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="tel" type="xs:string">
+																		<xs:annotation>
+																			<xs:documentation>固定电话</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="mobile" type="xs:string">
+																		<xs:annotation>
+																			<xs:documentation>移动电话</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="email" type="xs:string">
+																		<xs:annotation>
+																			<xs:documentation>Email地址</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+														<xs:element name="add" type="xs:string">
+																<xs:annotation>
+																	<xs:documentation>单位地址</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														<xs:element name="zipCode" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>邮政编码</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="serviceRegTime" type="xs:string" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>服务开通时间，当用户属性为其他用户信息时，必填</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:choice>
+															<xs:element name="serviceInfo" maxOccurs="unbounded">
+																<xs:annotation>
+																	<xs:documentation>服务信息，提供互联网应用服务的用户必填</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="serviceId" type="xs:long">
+																			<xs:annotation>
+																				<xs:documentation>服务信息ID标识，该用户内唯一</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="serviceContent" type="xs:integer" maxOccurs="unbounded">
+																			<xs:annotation>
+																				<xs:documentation>服务内容</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="regType" type="xs:integer" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>网站登记备案类型，网站必填</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="regId" type="xs:string" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>网站备案号或许可证号，网站必填</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="setMode" type="xs:integer">
+																			<xs:annotation>
+																				<xs:documentation>接入方式</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="business" type="xs:integer">
+																			<xs:annotation>
+																				<xs:documentation>业务类型1-IDC业务2-ISP业务</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="domain" minOccurs="0" maxOccurs="unbounded">
+																			<xs:annotation>
+																				<xs:documentation>域名</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="id" type="xs:long">
+																						<xs:annotation>
+																							<xs:documentation>域名ID标识</xs:documentation>
+																						</xs:annotation>
+																					</xs:element>
+																					<xs:element name="name" type="xs:string">
+																						<xs:annotation>
+																							<xs:documentation>域名</xs:documentation>
+																						</xs:annotation>
+																					</xs:element>
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="housesHoldInfo" minOccurs="0" maxOccurs="unbounded">
+																			<xs:annotation>
+																				<xs:documentation>占用机房信息</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="hhId" type="xs:long">
+																						<xs:annotation>
+																							<xs:documentation>占用机房信息ID</xs:documentation>
+																						</xs:annotation>
+																					</xs:element>
+																					<xs:element name="houseId" type="xs:long">
+																						<xs:annotation>
+																							<xs:documentation>IDC/ISP机房ID</xs:documentation>
+																						</xs:annotation>
+																					</xs:element>
+																					<xs:element name="distributeTime" type="xs:string">
+																						<xs:annotation>
+																							<xs:documentation>分配时间</xs:documentation>
+																						</xs:annotation>
+																					</xs:element>
+																					<xs:element name="virtualServer" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>虚拟主机信息</xs:documentation>
+																						</xs:annotation>
+																						<xs:complexType> 
+																							<xs:sequence>
+																								<xs:element name="virtualhostName" type="xs:string">
+																									<xs:annotation>
+																										<xs:documentation>虚拟主机名称</xs:documentation>
+																									</xs:annotation>
+																								</xs:element>
+																								<xs:element name="virtualhostState" type="xs:integer" minOccurs="0">
+																									<xs:annotation>
+																										<xs:documentation>虚拟主机状态</xs:documentation>
+																									</xs:annotation>
+																								</xs:element>
+																								<xs:element name="virtualhostType" type="xs:integer">
+																									<xs:annotation>
+																										<xs:documentation>虚拟主机类型，1-共享式、2-专用式、3-云虚拟</xs:documentation>
+																									</xs:annotation>
+																								</xs:element>
+																								<xs:element name="virtualhostAddress" type="xs:string">
+																									<xs:annotation>
+																										<xs:documentation>虚拟主机网络地址</xs:documentation>
+																									</xs:annotation>
+																								</xs:element>
+																								<xs:element name="virtualhostManagementAddress" type="xs:string">
+																									<xs:annotation>
+																										<xs:documentation>虚拟主机管理地址</xs:documentation>
+																									</xs:annotation>
+																								</xs:element>
+																							</xs:sequence>
+																						</xs:complexType>
+																					</xs:element>
+																					<xs:element name="frameInfoId" type="xs:long" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>机架编号ID</xs:documentation>
+																						</xs:annotation>
+																					</xs:element>
+																					<xs:element name="bandWidth" type="xs:long" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>网络带宽</xs:documentation>
+																						</xs:annotation>
+																					</xs:element>
+																					<xs:element name="ipTrans" maxOccurs="unbounded">
+																						<xs:annotation>
+																							<xs:documentation>IP地址转换信息，存在内外网转换的需要填写私网IP地址</xs:documentation>
+																						</xs:annotation>
+																						<xs:complexType>
+																							<xs:sequence>
+																								<xs:element name="internetIp">
+																									<xs:annotation>
+																										<xs:documentation>互联网IP地址段</xs:documentation>
+																									</xs:annotation>
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name= "startIp" type="xs:string">
+																												<xs:annotation>
+																													<xs:documentation>互联网起始IP地址</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																											<xs:element name= "endIp" type="xs:string">
+																												<xs:annotation>
+																													<xs:documentation>互联网终止IP地址</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>
+																								<xs:element name="netIp" minOccurs="0">
+																									<xs:annotation>
+																										<xs:documentation>对应私网IP地址段</xs:documentation>
+																									</xs:annotation>
+																									<xs:complexType>
+																										<xs:sequence>
+																											<xs:element name="startIp" type="xs:string">
+																												<xs:annotation>
+																													<xs:documentation>对应的私网起始IP地址</xs:documentation>
+																												</xs:annotation>
+																											</xs:element> 
+																											<xs:element name="endIp" type="xs:string">
+																												<xs:annotation>
+																													<xs:documentation>对应的私网终止IP地址</xs:documentation>
+																												</xs:annotation>
+																											</xs:element>
+																										</xs:sequence>
+																									</xs:complexType>
+																								</xs:element>																								
+																							</xs:sequence>
+																						</xs:complexType>
+																					</xs:element>																					
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="houseHoldInfo" maxOccurs="unbounded">
+																<xs:annotation>
+																	<xs:documentation>占用机房信息，其他用户必填</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="hhId" type="xs:long">
+																			<xs:annotation>
+																				<xs:documentation>占用机房信息ID</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="houseId" type="xs:long">
+																			<xs:annotation>
+																				<xs:documentation>IDC/ISP机房ID</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="distributeTime" type="xs:string">
+																			<xs:annotation>
+																				<xs:documentation>分配时间</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="ipSeg" maxOccurs="unbounded">
+																			<xs:annotation>
+																				<xs:documentation>IP地址信息</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="ipId" type="xs:long">
+																						<xs:annotation>
+																							<xs:documentation>IP段编号ID，由IDC/ISP经营者产生，在本单位中惟一</xs:documentation>
+																						</xs:annotation>
+																					</xs:element>
+																					<xs:element name="startIp" type="xs:string">
+																						<xs:annotation>
+																							<xs:documentation>起始IP地址</xs:documentation>
+																						</xs:annotation>
+																					</xs:element>
+																					<xs:element name="endIp" type="xs:string">
+																						<xs:annotation>
+																							<xs:documentation>终止IP地址</xs:documentation>
+																						</xs:annotation>
+																					</xs:element>
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>	
+																		<xs:element name="bandWidth" type="xs:long" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>网络带宽</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+														</xs:choice>
+														<xs:element name="registerTime" type="xs:string">
+															<xs:annotation>
+																<xs:documentation>用户的注册时间，采用yyyy-MM-dd格式</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="updateInfo">
+						<xs:annotation>
+							<xs:documentation>修改基础数据</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+						<xs:sequence>
+							<xs:element name="idcId" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>电信管理部门颁发的IDC/ISP许可证号</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="idcName" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>经营者名称，与许可证上名称一致</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="idcAdd" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>经营者通信地址</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="idcZip" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>对应经营者通信地址的邮编</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="corp" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>企业法人</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="idcOfficer" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>网络信息安全责任人信息</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="name" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>人员姓名</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="idType" type="xs:integer">
+											<xs:annotation>
+												<xs:documentation>人员的证件类型</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="id" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>证件号码</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="tel" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>固定电话</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="mobile" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>移动电话</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="email" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Email地址</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="emergencyContact" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>紧急联系人信息</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="name" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>人员姓名</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="idType" type="xs:integer">
+											<xs:annotation>
+												<xs:documentation>人员的证件类型</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="id" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>证件号码</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="tel" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>固定电话</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="mobile" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>移动电话</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="email" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Email地址</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="updateData" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>更新数据</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="houseInfo" minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>机房信息</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="houseId" type="xs:long">
+														<xs:annotation>
+															<xs:documentation>当前机房ID，由IDC或ISP经营者产生，在本单位中唯一</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="houseName" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>机房名称</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="houseType" type="xs:integer" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>机房性质</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="houseProvince" type="xs:long" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>机房所在省的行政区划代码，参见《中华人民共和国行政区划代码》（GB/T2260-2007）</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="houseCity" type="xs:long" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>机房所在市的行政区划代码，参见《中华人民共和国行政区划代码》（GB/T2260-2007）</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="houseCounty" type="xs:long" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>机房所在县的行政区划代码，参见《中华人民共和国行政区划代码》（GB/T2260-2007）</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="houseAdd" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>机房的通信地址</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="houseZip" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>通信地址的邮编</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="houseOfficer" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>机房网络信息安全责任人信息</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="name" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>人员姓名</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="idType" type="xs:integer">
+																	<xs:annotation>
+																		<xs:documentation>人员的证件类型</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="id" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>证件号码</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="tel" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>固定电话</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="mobile" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>移动电话</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="email" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>Email地址</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="gatewayInfo" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>链路信息</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="id" type="xs:long">
+																	<xs:annotation>
+																		<xs:documentation>链路编号ID</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="bandWidth" type="xs:long" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>链路带宽单位（兆比特）</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="linkType" type="xs:integer" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>链路类型</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="accessUnit" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>链路接入单位信息</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="gatewayIp" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>网关IP地址</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="ipSegInfo" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>IP地址段信息</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="id" type="xs:long">
+																	<xs:annotation>
+																		<xs:documentation>IP地址段信息编号ID</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="startIp" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>起始IP地址</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="endIp" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>终止IP地址</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="type" type="xs:integer" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>IP地址使用方式，包括； 0-静态； 1-动态； 2-保留。 </xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="user" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>使用该IP段的单位名称，如果是个人需要填写姓名</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="idType" type="xs:integer" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>使用人证件类型</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="idNumber" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>对应的证件号码</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="sourceUnit" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>来源单位</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="allocationUnit" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>分配单位</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="useTime" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>分配使用时间采用yyyy-MM-dd格式</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="frameInfo" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>机架信息</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="id" type="xs:long">
+																	<xs:annotation>
+																		<xs:documentation>机架信息编号ID</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="useType" type="xs:integer" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>使用类型</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="distribution" type="xs:integer" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>分配状态</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="occupancy" type="xs:integer" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>占用状态</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="frameName" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>机位名称</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="userInfo" minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>用户数据</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:long">
+														<xs:annotation>
+															<xs:documentation>用户唯一ID，由IDC/ISP经营者产生，在本单位中唯一</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="nature" type="xs:integer" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>1、提供互联网应用服务的用户 2、其他用户</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="info" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>用户信息</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="unitName" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>单位名称</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="unitNature" type="xs:integer" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>单位属性</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="idType" type="xs:integer" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>证件类型</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="idNumber" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>证件号码</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="officer" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>网络信息安全责任人信息</xs:documentation>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="name" type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>人员姓名</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="idType" type="xs:integer">
+																				<xs:annotation>
+																					<xs:documentation>人员的证件类型</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="id" type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>证件号码</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="tel" type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>固定电话</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="mobile" type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>移动电话</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="email" type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>Email地址</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="add" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>单位地址</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="zipCode" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>邮政编码</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="serviceRegTime" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>服务开通时间</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:choice>
+																	<xs:element name="serviceInfo" minOccurs="0" maxOccurs="unbounded">
+																		<xs:annotation>
+																			<xs:documentation>服务信息，提供互联网应用服务的用户必填</xs:documentation>
+																		</xs:annotation>
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="serviceId" type="xs:long">
+																					<xs:annotation>
+																						<xs:documentation>服务信息ID标识，该用户内唯一</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="serviceContent" type="xs:integer" minOccurs="0" maxOccurs="unbounded">
+																					<xs:annotation>
+																						<xs:documentation>服务内容</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="regType" type="xs:integer" minOccurs="0">
+																					<xs:annotation>
+																						<xs:documentation>网站登记备案类型，网站必填</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="regId" type="xs:string" minOccurs="0">
+																					<xs:annotation>
+																						<xs:documentation>网站备案号或许可证号，网站必填</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="setMode" type="xs:integer" minOccurs="0">
+																					<xs:annotation>
+																						<xs:documentation>接入方式</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="business" type="xs:integer" minOccurs="0">
+																					<xs:annotation>
+																						<xs:documentation>业务类型1-IDC业务 2-ISP业务</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="domain" minOccurs="0" maxOccurs="unbounded">
+																					<xs:annotation>
+																						<xs:documentation>域名</xs:documentation>
+																					</xs:annotation>
+																					<xs:complexType>
+																						<xs:sequence>
+																							<xs:element name="id" type="xs:long">
+																								<xs:annotation>
+																									<xs:documentation>域名ID标识</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																							<xs:element name="name" type="xs:string" minOccurs="0">
+																								<xs:annotation>
+																									<xs:documentation>域名</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																						</xs:sequence>
+																					</xs:complexType>
+																				</xs:element>
+																				<xs:element name="housesHoldInfo" minOccurs="0" maxOccurs="unbounded">
+																					<xs:annotation>
+																						<xs:documentation>占用机房信息</xs:documentation>
+																					</xs:annotation>
+																					<xs:complexType>
+																						<xs:sequence>
+																							<xs:element name="hhId" type="xs:long">
+																								<xs:annotation>
+																									<xs:documentation>占用机房信息ID</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																							<xs:element name="houseId" type="xs:long" minOccurs="0">
+																								<xs:annotation>
+																									<xs:documentation>IDC/ISP机房ID</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																							<xs:element name="distributeTime" type="xs:string" minOccurs="0">
+																								<xs:annotation>
+																									<xs:documentation>分配时间</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																							<xs:element name="virtualServer" minOccurs="0">
+																								<xs:annotation>
+																									<xs:documentation>虚拟主机信息</xs:documentation>
+																								</xs:annotation>
+																								<xs:complexType> 
+																									<xs:sequence>
+																										<xs:element name="virtualhostName" type="xs:string">
+																											<xs:annotation>
+																												<xs:documentation>虚拟主机名称</xs:documentation>
+																											</xs:annotation>
+																										</xs:element>
+																										<xs:element name="virtualhostState" type="xs:integer" minOccurs="0">
+																											<xs:annotation>
+																												<xs:documentation>虚拟主机状态</xs:documentation>
+																											</xs:annotation>
+																										</xs:element>
+																										<xs:element name="virtualhostType" type="xs:integer">
+																											<xs:annotation>
+																												<xs:documentation>虚拟主机类型，1-共享式、2-专用式、3-云虚拟</xs:documentation>
+																											</xs:annotation>
+																										</xs:element>
+																										<xs:element name="virtualhostAddress" type="xs:string">
+																											<xs:annotation>
+																												<xs:documentation>虚拟主机网络地址</xs:documentation>
+																											</xs:annotation>
+																										</xs:element>
+																										<xs:element name="virtualhostManagementAddress" type="xs:string">
+																											<xs:annotation>
+																												<xs:documentation>虚拟主机管理地址</xs:documentation>
+																											</xs:annotation>
+																										</xs:element>
+																									</xs:sequence>
+																								</xs:complexType>
+																							</xs:element>
+																							<xs:element name="frameInfoId" type="xs:long" minOccurs="0">
+																								<xs:annotation>
+																									<xs:documentation>机架编号ID</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																							<xs:element name="bandWidth" type="xs:long" minOccurs="0">
+																								<xs:annotation>
+																									<xs:documentation>网络带宽</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																							<xs:element name="ipTrans" minOccurs="0" maxOccurs="unbounded">
+																								<xs:annotation>
+																									<xs:documentation>IP地址转换信息，存在内外网转换的需要填写私网IP地址</xs:documentation>
+																								</xs:annotation>
+																								<xs:complexType>
+																									<xs:sequence>
+																										<xs:element name="internetIp">
+																											<xs:annotation>
+																												<xs:documentation>互联网IP地址段
+																												</xs:documentation>
+																											</xs:annotation>
+																											<xs:complexType>
+																												<xs:sequence>
+																													<xs:element name="startIp" type="xs:string">
+																														<xs:annotation>
+																															<xs:documentation>互联网起始IP地址</xs:documentation>
+																														</xs:annotation>
+																													</xs:element>
+																													<xs:element name="endIp" type="xs:string">
+																														<xs:annotation>
+																															<xs:documentation>互联网终止IP地址</xs:documentation>
+																														</xs:annotation>
+																													</xs:element>
+																												</xs:sequence>
+																											</xs:complexType>
+																										</xs:element>
+																										<xs:element name="netIp" minOccurs="0">
+																											<xs:annotation>
+																												<xs:documentation>对应私网IP地址段</xs:documentation>
+																											</xs:annotation>
+																											<xs:complexType>
+																												<xs:sequence>
+																													<xs:element name="startIp" type="xs:string">
+																														<xs:annotation>
+																															<xs:documentation>对应的私网起始IP地址</xs:documentation>
+																														</xs:annotation>
+																													</xs:element>
+																													<xs:element name="endIp" type="xs:string">
+																														<xs:annotation>
+																															<xs:documentation>对应的私网终止IP地址</xs:documentation>
+																														</xs:annotation>
+																													</xs:element>
+																												</xs:sequence>
+																											</xs:complexType>
+																										</xs:element>
+																									</xs:sequence>
+																								</xs:complexType>
+																							</xs:element>
+																						</xs:sequence>
+																					</xs:complexType>
+																				</xs:element>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element name="houseHoldInfo" minOccurs="0" maxOccurs="unbounded">
+																		<xs:annotation>
+																			<xs:documentation>占用机房信息，其他用户必填</xs:documentation>
+																		</xs:annotation>
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="hhId" type="xs:long">
+																					<xs:annotation>
+																						<xs:documentation>占用机房信息ID</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="houseId" type="xs:long" minOccurs="0">
+																					<xs:annotation>
+																						<xs:documentation>IDC/ISP机房ID</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="distributeTime" type="xs:string" minOccurs="0">
+																					<xs:annotation>
+																						<xs:documentation>分配时间</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="ipSeg" minOccurs="0" maxOccurs="unbounded">
+																					<xs:annotation>
+																						<xs:documentation>IP地址信息</xs:documentation>
+																					</xs:annotation>
+																					<xs:complexType>
+																						<xs:sequence>
+																							<xs:element name="ipId" type="xs:long">
+																								<xs:annotation>
+																									<xs:documentation>IP段编号ID，由IDC/ISP经营者产生，在本单位中惟一</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																							<xs:element name="startIp" type="xs:string">
+																								<xs:annotation>
+																									<xs:documentation>起始IP地址</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																							<xs:element name="endIp" type="xs:string">
+																								<xs:annotation>
+																									<xs:documentation>终止IP地址</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																						</xs:sequence>
+																					</xs:complexType>
+																				</xs:element>
+																				<xs:element name="bandWidth" type="xs:long" minOccurs="0">
+																					<xs:annotation>
+																						<xs:documentation>网络带宽</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																</xs:choice>
+																<xs:element name="registerTime" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>用户的注册时间，采用yyyy-MM-dd格式</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+					<xs:element name="deleteInfo">
+						<xs:annotation>
+							<xs:documentation>删除基础数据</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="idcId" type="xs:string">
+									<xs:annotation>
+										<xs:documentation>电信管理部门颁发的IDC/ISP许可证号</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="deleteData" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>删除数据</xs:documentation>
+									</xs:annotation>
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="house" minOccurs="0" maxOccurs="unbounded">
+												<xs:annotation>
+													<xs:documentation>删除的机房数据</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="houseId" type="xs:long">
+															<xs:annotation>
+																<xs:documentation>指定删除的houseID或者是需要从中删除互联网出入口、IP段的houseID</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="gatewayId" type="xs:long" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>指定删除的互联网出入口ID</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="ipSegId" type="xs:long" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>指定删除的IP段ID</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="user" minOccurs="0" maxOccurs="unbounded">
+												<xs:annotation>
+													<xs:documentation>删除的用户数据</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="userId" type="xs:long">
+															<xs:annotation>
+																<xs:documentation>指定删除的useID或者是需要从中删除应用服务、占用机房的userID</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+														<xs:element name="service" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>删除的应用服务数据</xs:documentation>
+															</xs:annotation>
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="serviceId" type="xs:long">
+																		<xs:annotation>
+																			<xs:documentation>指定删除的应用服务ID或需要从中删除域名或占用机房的应用服务ID</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="domainId" type="xs:long" minOccurs="0">
+																		<xs:annotation>
+																			<xs:documentation>删除的应用服务域名ID（userID与serviceID必填）</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="hhId" type="xs:long" minOccurs="0">
+																		<xs:annotation>
+																			<xs:documentation>删除的应用服务占用机房信息ID</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+														<xs:element name="hhId" type="xs:long" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>删除的其他类用户占用机房信息ID</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="queryResult">
+					<xs:annotation>
+						<xs:documentation>全量上报的信息</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="commandId" type="xs:long">
+								<xs:annotation>
+									<xs:documentation>对应的查询指令ID</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="idcId" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>电信管理部门颁发的IDC许可证号</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="idcName" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>经营者名称，与许可证上名称一致</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="idcAdd" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>经营者通信地址</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="idcZip" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>对应经营者通信地址的邮编</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="corp" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>企业法人</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="idcOfficer" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>网络信息安全责任人信息</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="name" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>人员姓名</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="idType" type="xs:integer">
+											<xs:annotation>
+												<xs:documentation>人员的证件类型</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="id" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>证件号码</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="tel" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>固定电话</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="mobile" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>移动电话</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="email" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Email地址</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="emergencyContact" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>紧急联系人信息
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="name" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>人员姓名</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="idType" type="xs:integer">
+											<xs:annotation>
+												<xs:documentation>人员的证件类型</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="id" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>证件号码</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="tel" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>固定电话</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="mobile" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>移动电话</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="email" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Email地址</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="houseInfo" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>机房信息
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="houseId" type="xs:long">
+											<xs:annotation>
+												<xs:documentation>当前机房ID，由IDC或ISP经营者产生，在本单位中唯一</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="houseName" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>机房名称
+												</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="houseType" type="xs:integer">
+											<xs:annotation>
+												<xs:documentation>机房性质
+												</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="houseProvince" type="xs:long">
+											<xs:annotation>
+												<xs:documentation>机房所在省的行政区划代码，参见《中华人民共和国行政区划代码》（GB/T2260-2007）</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="houseCity" type="xs:long">
+											<xs:annotation>
+												<xs:documentation>机房所在市的行政区划代码，参见《中华人民共和国行政区划代码》（GB/T2260-2007）</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="houseCounty" type="xs:long" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>机房所在县的行政区划代码，参见《中华人民共和国行政区划代码》（GB/T2260-2007）</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="houseAdd" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>机房的通信地址</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="houseZip" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>通信地址的邮编</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="houseOfficer">
+											<xs:annotation>
+												<xs:documentation>机房网络信息安全责任人信息</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="name" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>人员姓名</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="idType" type="xs:integer">
+														<xs:annotation>
+															<xs:documentation>人员的证件类型</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="id" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>证件号码</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="tel" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>固定电话</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="mobile" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>移动电话</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="email" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Email地址</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="gatewayInfo" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>链路信息</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:long">
+														<xs:annotation>
+															<xs:documentation>链路信息编号ID</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="bandWidth" type="xs:long">
+														<xs:annotation>
+															<xs:documentation>链路信息带宽单位（兆比特）</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="linkType" type="xs:integer">
+														<xs:annotation>
+															<xs:documentation>链路类型</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="accessUnit" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>链路接入单位信息</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="gatewayIp" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>网关IP地址</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ipSegInfo" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>IP地址段信息</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:long">
+														<xs:annotation>
+															<xs:documentation>IP地址段信息编号ID</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="startIp" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>起始IP地址</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="endIp" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>终止IP地址</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="type" type="xs:integer">
+														<xs:annotation>
+															<xs:documentation>IP地址使用方式，包括；0-静态； 1-动态； 2-保留。</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="user" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>使用该IP段的单位名称，如果是个人需要填写姓名</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="idType" type="xs:integer" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>使用人证件类型</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="idNumber" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>对应的证件号码</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="sourceUnit" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>来源单位</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="allocationUnit" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>分配单位</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="useTime" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>分配使用时间采用yyyy-MM-dd格式</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="frameInfo" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>机架信息</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="id" type="xs:long">
+														<xs:annotation>
+															<xs:documentation>机架信息编号ID</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="useType" type="xs:integer">
+														<xs:annotation>
+															<xs:documentation>使用类型</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="distribution" type="xs:integer">
+														<xs:annotation>
+															<xs:documentation>分配状态</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="occupancy" type="xs:integer">
+														<xs:annotation>
+															<xs:documentation>占用状态</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="frameName" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>机位名称</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="userInfo" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>用户数据</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="id" type="xs:long">
+											<xs:annotation>
+												<xs:documentation>用户唯一ID，由IDC/ISP经营者产生，在本单位中唯一</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="nature" type="xs:integer">
+											<xs:annotation>
+												<xs:documentation>1、提供互联网应用服务的用户 2、其他用户</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="info">
+											<xs:annotation>
+												<xs:documentation>用户信息</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="unitName" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>单位名称</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="unitNature" type="xs:integer">
+														<xs:annotation>
+															<xs:documentation>单位属性</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="idType" type="xs:integer">
+														<xs:annotation>
+															<xs:documentation>证件类型</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="idNumber" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>证件号码</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="officer">
+														<xs:annotation>
+															<xs:documentation>网络信息安全责任人信息</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="name" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>人员姓名</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="idType" type="xs:integer">
+																	<xs:annotation>
+																		<xs:documentation>人员的证件类型</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="id" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>证件号码</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="tel" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>固定电话</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="mobile" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>移动电话</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="email" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>Email地址</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="add" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>单位地址</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="zipCode" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>邮政编码</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="serviceRegTime" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>服务开通时间，当用户属性为其他用户信息时，必填</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:choice>
+														<xs:element name="serviceInfo" maxOccurs="unbounded">
+															<xs:annotation>
+																<xs:documentation>服务信息，提供互联网应用服务的用户必填</xs:documentation>
+															</xs:annotation>
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="serviceId" type="xs:long">
+																		<xs:annotation>
+																			<xs:documentation>服务信息ID标识，该用户内唯一</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="serviceContent" type="xs:integer" maxOccurs="unbounded">
+																		<xs:annotation>
+																			<xs:documentation>服务内容</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="regType" type="xs:integer" minOccurs="0">
+																		<xs:annotation>
+																			<xs:documentation>网站登记备案类型，网站必填</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="regId" type="xs:string" minOccurs="0">
+																		<xs:annotation>
+																			<xs:documentation>网站备案号或许可证号，网站必填</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="setMode" type="xs:integer">
+																		<xs:annotation>
+																			<xs:documentation>接入方式</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="business" type="xs:integer">
+																		<xs:annotation>
+																			<xs:documentation>业务类型1-IDC业务 2-ISP业务</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="domain" minOccurs="0" maxOccurs="unbounded">
+																		<xs:annotation>
+																			<xs:documentation>域名</xs:documentation>
+																		</xs:annotation>
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="id" type="xs:long">
+																					<xs:annotation>
+																						<xs:documentation>域名ID标识</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="name" type="xs:string">
+																					<xs:annotation>
+																						<xs:documentation>域名</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element name="housesHoldInfo" minOccurs="0" maxOccurs="unbounded">
+																		<xs:annotation>
+																			<xs:documentation>占用机房信息</xs:documentation>
+																		</xs:annotation>
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="hhId" type="xs:long">
+																					<xs:annotation>
+																						<xs:documentation>占用机房信息ID</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="houseId" type="xs:long">
+																					<xs:annotation>
+																						<xs:documentation>IDC/ISP机房ID</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="distributeTime" type="xs:string">
+																					<xs:annotation>
+																						<xs:documentation>分配时间</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="virtualServer" minOccurs="0">
+																					<xs:annotation>
+																						<xs:documentation>虚拟主机信息</xs:documentation>
+																					</xs:annotation>
+																					<xs:complexType>
+																						<xs:sequence>
+																							<xs:element name="virtualhostName" type="xs:string">
+																								<xs:annotation>
+																									<xs:documentation>虚拟主机名称</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																							<xs:element name="virtualhostState" type="xs:integer" minOccurs="0">
+																								<xs:annotation>
+																									<xs:documentation>虚拟主机状态</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																							<xs:element name="virtualhostType" type="xs:integer">
+																								<xs:annotation>
+																									<xs:documentation>虚拟主机类型，1-共享式、2-专用式、3-云虚拟</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																							<xs:element name="virtualhostAddress" type="xs:string">
+																								<xs:annotation>
+																									<xs:documentation>虚拟主机网络地址</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																							<xs:element name="virtualhostManagementAddress" type="xs:string">
+																								<xs:annotation>
+																									<xs:documentation>虚拟主机管理地址</xs:documentation>
+																								</xs:annotation>
+																							</xs:element>
+																						</xs:sequence>
+																					</xs:complexType>
+																				</xs:element>
+																				<xs:element name="frameInfoId" type="xs:long" minOccurs="0">
+																					<xs:annotation>
+																						<xs:documentation>机架编号ID</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="bandWidth" type="xs:long" minOccurs="0">
+																					<xs:annotation>
+																						<xs:documentation>网络带宽</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="ipTrans" maxOccurs="unbounded">
+																					<xs:annotation>
+																						<xs:documentation>IP地址转换信息，存在内外网转换的需要填写私网IP地址</xs:documentation>
+																					</xs:annotation>
+																					<xs:complexType>
+																						<xs:sequence>
+																							<xs:element name="internetIp">
+																								<xs:annotation>
+																									<xs:documentation>互联网IP地址段</xs:documentation>
+																								</xs:annotation>
+																								<xs:complexType>
+																									<xs:sequence>
+																										<xs:element name="startIp" type="xs:string">
+																											<xs:annotation>
+																												<xs:documentation>互联网起始IP地址</xs:documentation>
+																											</xs:annotation>
+																										</xs:element>
+																										<xs:element name="endIp" type="xs:string">
+																											<xs:annotation>
+																												<xs:documentation>互联网终止IP地址</xs:documentation>
+																											</xs:annotation>
+																										</xs:element>
+																									</xs:sequence>
+																								</xs:complexType>
+																							</xs:element>
+																							<xs:element name="netIp" minOccurs="0">
+																								<xs:annotation>
+																									<xs:documentation>对应私网IP地址段</xs:documentation>
+																								</xs:annotation>
+																								<xs:complexType>
+																									<xs:sequence>
+																										<xs:element name="startIp" type="xs:string">
+																											<xs:annotation>
+																												<xs:documentation>对应的私网起始IP地址</xs:documentation>
+																											</xs:annotation>
+																										</xs:element>
+																										<xs:element name="endIp" type="xs:string">
+																											<xs:annotation>
+																												<xs:documentation>对应的私网终止IP地址</xs:documentation>
+																											</xs:annotation>
+																										</xs:element>
+																									</xs:sequence>
+																								</xs:complexType>
+																							</xs:element>
+																						</xs:sequence>
+																					</xs:complexType>
+																				</xs:element>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+														<xs:element name="houseHoldInfo" maxOccurs="unbounded">
+															<xs:annotation>
+																<xs:documentation>占用机房信息，其他用户必填</xs:documentation>
+															</xs:annotation>
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="hhId" type="xs:long">
+																		<xs:annotation>
+																			<xs:documentation>占用机房信息ID</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="houseId" type="xs:long">
+																		<xs:annotation>
+																			<xs:documentation>IDC/ISP机房ID</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="distributeTime" type="xs:string">
+																		<xs:annotation>
+																			<xs:documentation>分配时间</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																	<xs:element name="ipSeg" maxOccurs="unbounded">
+																		<xs:annotation>
+																			<xs:documentation>IP地址信息</xs:documentation>
+																		</xs:annotation>
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="ipId" type="xs:long">
+																					<xs:annotation>
+																						<xs:documentation>IP段编号ID，由IDC/ISP经营者产生，在本单位中惟一</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="startIp" type="xs:string">
+																					<xs:annotation>
+																						<xs:documentation>起始IP地址</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																				<xs:element name="endIp" type="xs:string">
+																					<xs:annotation>
+																						<xs:documentation>终止IP地址</xs:documentation>
+																					</xs:annotation>
+																				</xs:element>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element name="bandWidth" type="xs:long" minOccurs="0">
+																		<xs:annotation>
+																			<xs:documentation>网络带宽</xs:documentation>
+																		</xs:annotation>
+																	</xs:element>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+													</xs:choice>
+													<xs:element name="registerTime" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>用户的注册时间，采用yyyy-MM-dd格式</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				</xs:choice>
+				<xs:element name="timeStamp" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>数据生成时间</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
